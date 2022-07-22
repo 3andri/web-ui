@@ -1,12 +1,14 @@
 import React from 'react'
+import logo from './../logo.svg';
+import './../App.css';
+import Spinner from '../spinner/spinner';
 
 const About = () => {
     return (<div>
-        <h2>GeeksforGeeks is a computer science portal for geeks!</h2>
-
-        Read more about us at :
+        <Spinner/>
+        
         <a href="triandripp@gmail.com">
-        triandripp@gmail.com
+            triandripp@gmail.com
         </a>
     </div>
     )

@@ -3,6 +3,7 @@ import {  useTable, useSortBy, useFilters, useGlobalFilter, useAsyncDebounce } f
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Table from "../component/table";
+import Spinner from '../spinner/spinner';
 
 
 
@@ -10,12 +11,16 @@ import Table from "../component/table";
 const Home = () => {
 
     const [data, setData] = useState([]);
+    const [spin, setSpin] = useState(true);
+
 
     // Using useEffect to call the API once mounted and set the data
     useEffect(() => {
         (async () => {
-            const result = await axios("http://localhost:8080/stock/stock-list");
+            setSpin(true)
+            const result = await axios(config.URLHOST+"/stock/stock-list");
             setData(result.data);
+            setSpin(false)
         })();
     }, []);
 
@@ -37,7 +42,8 @@ const Home = () => {
 
     return (
         <div>
-             <Table columns={columns} data={data} />
+          {spin? <Spinner /> : <Table columns={columns} data={data} />}
+             
         </div>
     )
 }

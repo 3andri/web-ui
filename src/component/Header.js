@@ -16,6 +16,9 @@ const header = () => {
           <a href="/data" className="btn btn-warning">Data</a>
         </Nav.Item>
         <Nav.Item>
+          <a href="/rank" className="btn btn-warning">top Looser/Gainer</a>
+        </Nav.Item>
+        <Nav.Item>
           <a href="/about" className="btn btn-warning">About Us</a>
         </Nav.Item>
         <Nav.Item>
